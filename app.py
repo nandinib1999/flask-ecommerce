@@ -1,13 +1,19 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 app = Flask(__name__)
 
-@app.route('/customer')
-def customer_login():
-	return render_template('customer_login.html')
+@app.route('/customer', methods=['GET', 'POST'])
+def customer():
+	error = None
+	if request.method == 'POST':
+		if request.form['username'] != 'admin' or request.form['password'] != 'admin':
+			error = 'Invalid Credentials. Please try again.'
+		else:
+			return "LOGGED IN"
+	return render_template('customer_login.html', error=error)
 
-@app.route('/customer/home')
+@app.route('/customer/home',  methods=['GET', 'POST'])
 def customer_home():
-	return render_template('customer_home.html')
+	return render_template('home_page.html')
 
 @app.route('/')
 def homepage():

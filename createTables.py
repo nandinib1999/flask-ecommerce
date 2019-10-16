@@ -36,8 +36,10 @@ conn.execute('''CREATE TABLE IF NOT EXISTS products(
 	proPrice REAL,
 	proBrandID INT ,
 	proDescription TEXT,
+	proCategoryID INT,
 	proImage TEXT,
-	FOREIGN KEY(proBrandID) REFERENCES company(compID)
+	FOREIGN KEY(proBrandID) REFERENCES company(compID),
+	FOREIGN KEY(proCategoryID) REFERENCES categories(catID)
 	)''')
 conn.execute('''CREATE TABLE IF NOT EXISTS wishlist(
 	wishUserID INT,
@@ -51,6 +53,11 @@ conn.execute('''CREATE TABLE IF NOT EXISTS cart(
 	FOREIGN KEY(cartUserID) REFERENCES customer(custID),
 	FOREIGN KEY(cartProductID) REFERENCES company(compID)
 	)''')
+conn.execute('''CREATE TABLE IF NOT EXISTS categories(
+	catID INT PRIMARY KEY,
+	catName TEXT
+	)''')
+
 
 
 print("Table created successfully!!")

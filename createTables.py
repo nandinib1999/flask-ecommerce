@@ -4,20 +4,22 @@ conn = sqlite3.connect('database.db')
 print("Database created successfully!!")
 
 conn.execute('''CREATE TABLE IF NOT EXISTS customers (
-	custID INT PRIMARY KEY,
+	custID INTEGER PRIMARY KEY AUTOINCREMENT,
 	custName TEXT,
+	custGender TEXT,
 	custAddress TEXT,
 	custCity TEXT,
 	custState TEXT,
 	custPin TEXT,
 	custEmail TEXT,
 	custPassword TEXT,
+	custCode TEXT,
 	custMobile TEXT,
-	country TEXT
+	custCountry TEXT
 	)''')
 
 conn.execute('''CREATE TABLE IF NOT EXISTS company(
-	compID INT PRIMARY KEY,
+	compID INTEGER PRIMARY KEY AUTOINCREMENT,
 	compName TEXT,
 	compAddress TEXT,
 	compCity TEXT,
@@ -25,8 +27,8 @@ conn.execute('''CREATE TABLE IF NOT EXISTS company(
 	compPin TEXT,
 	compEmail TEXT,
 	compPassword TEXT,
-	compMobile TEXT,
 	compCode TEXT,
+	compMobile TEXT,
 	compCountry TEXT
 	)''')
 conn.execute('''CREATE TABLE IF NOT EXISTS products(

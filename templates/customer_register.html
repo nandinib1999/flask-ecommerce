@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+   <body>
+      <h2 style = "text-align: center;">Contact Form</h2>
+		
+      {% for message in form.Name.errors %}
+         <div>{{ message }}</div>
+      {% endfor %}
+      
+      {% for message in form.Email.errors %}
+         <div>{{ message }}</div>
+      {% endfor %}
+      
+      <form method = "POST">
+         <fieldset>
+            <legend>Contact Form</legend>
+            {{ form.hidden_tag() }}
+            
+            <div style = font-size:20px; font-weight:bold; margin-left:150px;>
+               {{ form.Name.label }}
+               {{ form.Name }}
+               <br>
+               {{ form.Email.label }}
+               {{ form.Email }}
+               <br>
+               {{ form.Gender.label }} {{ form.Gender }}
+               <br><br>
+               {{ form.Address.label }}
+               {{ form.Address }}
+               <br>
+               {{ form.City.label }}
+               {{ form.City }}
+               <br>
+               {{ form.State.label }}
+               {{ form.State }}
+               <br>
+               {{ form.Pin.label }}
+               {{ form.Pin }}
+               <br>
+               {{ form.Country.label }}
+               {{ form.Country }}
+               <br>
+               {{ form.Mobile.label }}<br>
+               {{ form.Code }}
+               {{ form.Mobile }}
+               <br>
+               {{ form.Password.label }}
+               {{ form.Password }}
+               <br>
+               {{ form.accept_rules }}
+               {{ form.accept_rules.label }}
+               <br>
+               {{ form.submit }}
+            </div>
+            
+         </fieldset>
+      </form>
+   </body>
+</html>

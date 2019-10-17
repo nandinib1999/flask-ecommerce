@@ -1,6 +1,9 @@
 from flask import Flask, render_template, request
 app = Flask(__name__)
 
+UPLOAD_FOLDER = 'static/upload'
+IMAGE_EXTENSIONS = ['jpeg', 'jpg', 'png']
+
 @app.route('/customer', methods=['GET', 'POST'])
 def customer():
 	error = None

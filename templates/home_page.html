@@ -46,6 +46,46 @@ input[type=text]:focus {
 
 </div>
 Hello,  {{name}}
+
+<h2>Shop by Category: </h2>
+    <ul>
+      {% for row in categoryData %}
+      <li><a href="/">{{row[1]}}</a>
+        <ul>
+          <li><a href="/">{{row[2]}}</a></li>
+        </ul>
+      </li>
+      {% endfor %}
+    </ul>
+  <h2>Items</h2>
+    {% for data in itemData %}
+    <table>
+      <tr id="productName">
+        {% for row in data %}
+        <td>
+          {{row[1]}}
+        </td>
+        {% endfor %}
+      </tr>
+      <tr id="productImage">
+        {% for row in data %}
+        <td>
+          <a href="/">
+            <img src={{row[7]}} id="itemImage" />
+          </a>
+        </td>
+        {% endfor %}
+      </tr>
+      <tr id="productPrice">
+        {% for row in data %}
+        <td>
+          Rs {{row[2]}}
+        </td>
+        {% endfor %}
+      </tr>
+      <tr><a href='/'>Add to Cart</a></tr>
+    </table>
+    {% endfor %}
 </body>
 </html>
 

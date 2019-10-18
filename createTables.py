@@ -32,7 +32,7 @@ conn.execute('''CREATE TABLE IF NOT EXISTS company(
 	compCountry TEXT
 	)''')
 conn.execute('''CREATE TABLE IF NOT EXISTS products(
-	proID INT PRIMARY KEY,
+	proID INTEGER PRIMARY KEY AUTOINCREMENT,
 	proName TEXT,
 	proQuantity INT,
 	proPrice REAL,
@@ -56,8 +56,10 @@ conn.execute('''CREATE TABLE IF NOT EXISTS cart(
 	FOREIGN KEY(cartProductID) REFERENCES company(compID)
 	)''')
 conn.execute('''CREATE TABLE IF NOT EXISTS categories(
-	catID INT PRIMARY KEY,
-	catName TEXT
+	catID INTEGER PRIMARY KEY AUTOINCREMENT,
+	catParentName TEXT,
+	catSubName TEXT,
+	catDescription TEXT
 	)''')
 
 

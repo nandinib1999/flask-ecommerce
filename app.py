@@ -60,9 +60,10 @@ def add_item():
 			with sqlite3.connect('database.db') as con:
 				cur = con.cursor()
 				try:
+					print('Enter database')
 					cur.execute('''SELECT compID from company WHERE compName = ?''', (name,))
 					rows = cur.fetchone()
-					# print(rows[0])
+					print(rows[0])
 					comp_id = rows[0]
 					cur.execute('''SELECT catID from categories WHERE catParentName = (?) AND catSubName = (?)''', (category, sub_category,))
 					rows = cur.fetchone()
@@ -322,7 +323,69 @@ def customer_home(name):
 
 @app.route('/business/home/<name>',  methods=['GET', 'POST'])
 def company_home(name):
-	return render_template('home_page.html', name=name)
+	login_flag, name, email = checkSession()
+	with sqlite3.connect('database.db') as conn:
+		cur = conn.cursor()
+		cur.execute('SELECT proID, proName, proPrice, proQuantity, proDescription, proBrandID, proCategoryID, proImage FROM products')
+		itemData = cur.fetchall()
+		cur.execute('SELECT catID, catParentName, catSubName, catDescription FROM categories')
+		categoryData = cur.fetchall()
+	itemData = parse(itemData)   
+	return render_template('home_page.html', name=name, itemData=itemData, categoryData=categoryData)
+
+#### SALONI ----------------
+
+@app.route("/profile/<name>")
+def profileHome(name):
+	login_flag, name, email = checkSession()
+	return render_template("home_profile.html", loggedIn=loggedIn, firstName=firstName, noOfItems=noOfItems)
+
+@app.route("/profile/edit/")
+def editProfile():
+	with sqlite3.connect('database.db') as conn:
+		cur = conn.cursor()
+		cur.execute("SELECT custName,custGender,custAddress,custCity,custState,custPin,custEmail,custCode, custMobile, custCountry FROM customers WHERE email = '" + session['email'] + "'")
+		profileData = cur.fetchone()
+		conn.close()
+	return render_template("editProfile_cust.html", profileData=profileData, loggedIn=loggedIn, firstName=firstName, noOfItems=noOfItems)
+
+@app.route("/profile1/edit")
+def editProfileCompany():
+    with sqlite3.connect('database.db') as conn:
+       cur = conn.cursor()
+       cur.execute("SELECT compName,compAddress,compCity,compState,compPin, compEmail,compCode, compMobile,compCountry FROM company WHERE email = '" + session['email'] + "'")
+       profileData = cur.fetchone()
+    conn.close()
+    return render_template("editProfile_comp.html", profileData=profileData, loggedIn=loggedIn, firstName=firstName, noOfItems=noOfItems)
+
+@app.route("/profile/changePassword", methods=["GET", "POST"])
+def changePassword():
+	email = request.form['email']
+	password = request.form['password']
+	if request.method == "POST":
+	    pwd = request.form['pwd']
+	    pwd = hashlib.md5(pwd.encode()).hexdigest()
+	    newPwd = request.form['newpwd']
+	    newPwd = hashlib.md5(newPwd.encode()).hexdigest()
+	    with sqlite3.connect('database.db') as conn:
+	        cur = conn.cursor()
+	        cur.execute("SELECT custID, custPassword FROM customers WHERE email = '" + session['email'] + "'")
+	        custID,custPassword = cur.fetchone()
+	        if (password == pwd):
+	            try:
+	                cur.execute("UPDATE users SET password = ? WHERE userId = ?", (newPwd, userId))
+	                conn.commit()
+	                msg="Changed successfully"
+	            except:
+	                conn.rollback()
+	                msg = "Failed"
+	            return render_template("changePassword.html", msg=msg)
+	        else:
+	            msg = "Wrong password"
+	    conn.close()
+	    return render_template("changePassword.html", msg=msg)
+	else:
+	    return render_template("changePassword.html")
 
 @app.route('/')
 def homepage():

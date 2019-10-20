@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% for row in data %}
+	<title>{{row[1]}} | Details</title>
+	{% endfor %}
+	<style type="text/css">
+		a{
+			text-decoration: none;
+		}
+	</style>
+</head>
+<body>
+	{% for row in data %}
+	<h1>Product Name - {{row[1]}}</h1><br>
+	<h3>Price - Rs. {{row[2]}}</h3><br>
+	<h3>Description - {{row[3]}}</h3><br>
+	<img src="/static/upload/{{row[5]}}" alt="{{row[1]}}"><br>
+	<select id="quantity" onchange="document.getElementById('cart').href = document.getElementById('cart').href+'/'+document.getElementById('quantity').value">
+		<option value=2>2</option>
+		<option value=3>3</option>
+	</select>
+	<h5><a id="cart" href="/cart/add/{{row[0]}}">Add to Cart</a></h5>
+	{% endfor %}
+</body>
+</html>

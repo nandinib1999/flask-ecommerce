@@ -34,56 +34,63 @@ input[type=text] {
 input[type=text]:focus {
   width: 50%;
 }
+a{
+  text-decoration: none !important;
+}
 
 </style>
-<body style="background: url(ECommerce-Background-Zenith.png);" alt=" "/>
+<body style="background: url(/static/images/ECommerce-Background-Zenith.png);" alt=" "/>
 
 <div id="bc">
 
 <form>
   <input type="text" name="search" placeholder="Search..">
 </form>
-
+{% if 'email' in session %}
+  <a href='/business/logout'> Logout </a>
+  <a href="/business/add/category">Add New Category</a>
+  <a href="/business/add/item">Add New Item</a>
+{% else %}
+  <a href="/business">Login</a>
+  <a href="/business/register">Sign Up</a>
+{% endif %}
 </div>
 Hello,  {{name}}
-
-<h2>Shop by Category: </h2>
+  <h2>Shop by Category: </h2>
     <ul>
       {% for row in categoryData %}
-      <li><a href="/">{{row[1]}}</a>
-        <ul>
-          <li><a href="/">{{row[2]}}</a></li>
-        </ul>
-      </li>
+      <li><a href="/displayCategory/{{row[0]}}">{{row[0]}}</a></li>
+      <!--<ul><li><a href="/displayCategory/{{row[0]}}">{{row[2]}}</a></li></ul>-->
       {% endfor %}
     </ul>
+  <!--PRODUCT DISPLAY-->
   <h2>Items</h2>
     {% for data in itemData %}
     <table>
+      {% for row in data %}
       <tr id="productName">
-        {% for row in data %}
         <td>
           {{row[1]}}
         </td>
-        {% endfor %}
       </tr>
       <tr id="productImage">
-        {% for row in data %}
         <td>
           <a href="/">
-            <img src={{row[7]}} id="itemImage" />
+            <img src="/static/upload/{{row[7]}}" id="itemImage" alt="{{row[1]}}"/>
           </a>
         </td>
-        {% endfor %}
       </tr>
       <tr id="productPrice">
-        {% for row in data %}
         <td>
           Rs {{row[2]}}
         </td>
-        {% endfor %}
       </tr>
-      <tr><a href='/'>Add to Cart</a></tr>
+      <tr>
+        <td>
+          <a href='/business/displayProduct/{{row[0]}}'>View Details</a> <br>
+        </td>
+      </tr>
+      {% endfor %}
     </table>
     {% endfor %}
 </body>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign Up Form</title>
+	<link rel='stylesheet' href='style.css'>
+</head>
+<body>
+	<div class="sign-up-form">
+		<img src="user.png">
+		<h1>Sign Up Now</h1>
+		<form method="POST">
+			<input type="text" name="frst_name" placeholder="Your First Name" class='input-box' required>
+			<input type="text" name="last_name" placeholder="Your Last Name" class='input-box' required>
+			<input type="email" class='input-box' placeholder="Your Email" name="email" required><br>
+			<span>
+			 <input type="radio" name="gender" value="male" class="radio-btn"> Male &emsp;
+			 <input type="radio" name="gender" value="female" class="radio-btn"> Female &emsp;
+			 <input type="radio" name="gender" value="other" class="radio-btn"> Other &emsp;
+			<span>
+			<textarea type='text' name='address' class='input-box' placeholder="Your Address" required></textarea>
+			<input type="text" class='input-box spl2' placeholder="Your City" name="city" required>
+			<span>
+			<input type="text" class='input-box spl2' placeholder="Your State" name="state" required>
+			<span>
+			<input type="text" class='input-box spl2' placeholder="Pincode" name="pincode" required>
+			<span>
+			<input type="text" class='input-box' placeholder="Your Country" name="country" required>
+			<span>
+			<input type="text" class='input-box spl2' placeholder="Code" name="code" required>
+			<span>
+			<input type="text" class='input-box spl' placeholder="Your Mobile Number" name="mobile" required>
+			<span>
+			<input type="password" class='input-box' placeholder="Your Password" name="password" required>
+			<input type="password" class='input-box' placeholder="Confirm Password" name="confirm" required>
+			<p><span><input type="checkbox" required></span> I agree to the terms of service</p>
+			<button type="button" class='signUp-btn'>SignUp </button>
+			<hr>
+			<p>Already Registered? Login <a href="#">here</a></p>
+		</form>
+	</div>
+</body>
+</html>

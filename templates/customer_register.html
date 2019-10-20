@@ -1,59 +1,67 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-   <body>
-      <h2 style = "text-align: center;">Contact Form</h2>
-		
-      {% for message in form.Name.errors %}
-         <div>{{ message }}</div>
-      {% endfor %}
-      
-      {% for message in form.Email.errors %}
-         <div>{{ message }}</div>
-      {% endfor %}
-      
-      <form method = "POST">
-         <fieldset>
-            <legend>Contact Form</legend>
-            {{ form.hidden_tag() }}
-            
-            <div style = font-size:20px; font-weight:bold; margin-left:150px;>
-               {{ form.Name.label }}
-               {{ form.Name }}
-               <br>
-               {{ form.Email.label }}
-               {{ form.Email }}
-               <br>
-               {{ form.Gender.label }} {{ form.Gender }}
-               <br><br>
-               {{ form.Address.label }}
-               {{ form.Address }}
-               <br>
-               {{ form.City.label }}
-               {{ form.City }}
-               <br>
-               {{ form.State.label }}
-               {{ form.State }}
-               <br>
-               {{ form.Pin.label }}
-               {{ form.Pin }}
-               <br>
-               {{ form.Country.label }}
-               {{ form.Country }}
-               <br>
-               {{ form.Mobile.label }}<br>
-               {{ form.Code }}
-               {{ form.Mobile }}
-               <br>
-               {{ form.Password.label }}
-               {{ form.Password }}
-               <br>
-               {{ form.accept_rules }}
-               {{ form.accept_rules.label }}
-               <br>
-               {{ form.submit }}
-            </div>
-            
-         </fieldset>
-      </form>
-   </body>
+<head>
+  <title>Sign Up Form</title>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel='stylesheet' href='/static/css/style.css'>
+  <style type="text/css">
+    body{
+      background-image: url(/static/images/th.png);
+    }
+  </style>
+  <script type="text/javascript">
+      function Validate() {
+          var password = document.getElementById("txtPassword").value;
+          var confirmPassword = document.getElementById("txtConfirmPassword").value;
+          if (password != confirmPassword) {
+              alert("Passwords do not match.");
+              return false;
+          }
+          return true;
+      }
+  </script>
+</head>
+<body>
+  <div class="sign-up-form">
+    {% if error %}
+    <strong>ERRROORRRR:</strong> {{error}}
+    {% endif %}
+    <img src="/static/images/user.png">
+    <h1>Sign Up Now</h1>
+    <form method="POST">
+      <input type="text" name="first_name" placeholder="Your First Name" class='input-box' required>
+      <input type="text" name="last_name" placeholder="Your Last Name" class='input-box' required>
+      <input type="email" class='input-box' placeholder="Your Email" name="email" required>
+      <span> <br>
+      <input type="radio" name="gender" value="male">Male&nbsp;&nbsp;&nbsp;
+      <input type="radio" name="gender" value="female">Female&nbsp;&nbsp;&nbsp;
+      <input type="radio" name="gender" value="other">Other&nbsp;&nbsp;&nbsp;
+      </span>
+      <textarea type='text' name='address' class='input-box' placeholder="Your Address" required></textarea>
+      <span>
+      <input type="text" class='input-box spl2' placeholder="Your City" name="city" required>
+      <span>
+      <input type="text" class='input-box spl2' placeholder="Your State" name="state" required>
+      <span>
+      <input type="text" class='input-box spl2' placeholder="Pincode" name="pincode" required>
+      <span>
+      <input type="text" class='input-box' placeholder="Your Country" name="country" required>
+      <span>
+      <input type="text" class='input-box spl2' placeholder="Code" name="code" required>
+      <span>
+      <input type="text" class='input-box spl' placeholder="Your Mobile Number" name="mobile" required>
+      <span>
+      <input type="password" class='input-box' placeholder="Your Password" name="password" id="txtPassword" required>
+      <input type="password" class='input-box' placeholder="Confirm Password" name="confirm" id="txtConfirmPassword" required>
+      <p><span><input type="checkbox" required></span> I agree to the terms of service</p>
+      <button type="submit" class='signUp-btn' onsubmit="return Validate()">SignUp</button>
+      <hr>
+      <p>Already Registered? Login <a href="/business">here</a></p>
+    </form>
+  </div>
+</body>
 </html>

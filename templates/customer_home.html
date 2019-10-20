@@ -1,8 +1,97 @@
+<!doctype html>
 <html>
 <head>
-	<title>HOME</title>
+<title> </title>
 </head>
-<body>
-	<h1> HOME <h1>
+
+<style type="text/css">
+
+#bc
+{
+background-color:#E40046;
+height:60px;
+width:100%;
+}
+
+input[type=text] {
+  width: 100px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-image: url('searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 5px 5px 5px 5px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+  position:relative;
+  left:350px;
+  top:12px;
+}
+
+input[type=text]:focus {
+  width: 50%;
+}
+a{
+  text-decoration: none !important;
+}
+
+</style>
+<body style="background: url(/static/images/ECommerce-Background-Zenith.png);" alt=" "/>
+
+<div id="bc">
+
+<form>
+  <input type="text" name="search" placeholder="Search..">
+</form>
+{% if 'email' in session %}
+  <a href='/customer/logout'> Logout </a>
+{% else %}
+  <a href="/customer">Login</a>
+  <a href="/customer/register">Sign Up</a>
+  <a href="/business/home/None"> For Businesses </a>
+{% endif %}
+</div>
+Hello,  {{name}}
+  <h2>Shop by Category: </h2>
+    <ul>
+      {% for row in categoryData %}
+      <li><a href="/displayCategory/{{row[0]}}">{{row[0]}}</a></li>
+      <!--<ul><li><a href="/displayCategory/{{row[0]}}">{{row[2]}}</a></li></ul>-->
+      {% endfor %}
+    </ul>
+  <!--PRODUCT DISPLAY-->
+  <h2>Items</h2>
+    {% for data in itemData %}
+    <table>
+      {% for row in data %}
+      <tr id="productName">
+        <td>
+          {{row[1]}}
+        </td>
+      </tr>
+      <tr id="productImage">
+        <td>
+          <a href="/">
+            <img src="/static/upload/{{row[7]}}" id="itemImage" alt="{{row[1]}}"/>
+          </a>
+        </td>
+      </tr>
+      <tr id="productPrice">
+        <td>
+          Rs {{row[2]}}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href='/customer/displayProduct/{{row[0]}}'>View Details</a> <br>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% endfor %}
 </body>
 </html>
+

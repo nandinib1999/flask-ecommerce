@@ -5,7 +5,8 @@ print("Database created successfully!!")
 
 conn.execute('''CREATE TABLE IF NOT EXISTS customers (
 	custID INTEGER PRIMARY KEY AUTOINCREMENT,
-	custName TEXT,
+	custFirstName TEXT,
+	custLastName TEXT,
 	custGender TEXT,
 	custAddress TEXT,
 	custCity TEXT,
@@ -52,6 +53,13 @@ conn.execute('''CREATE TABLE IF NOT EXISTS wishlist(
 conn.execute('''CREATE TABLE IF NOT EXISTS cart(
 	cartUserID INT,
 	cartProductID INT,
+	FOREIGN KEY(cartUserID) REFERENCES customer(custID),
+	FOREIGN KEY(cartProductID) REFERENCES company(compID)
+	)''')
+conn.execute('''CREATE TABLE IF NOT EXISTS cartItems(
+	cartUserID INT,
+	cartProductID INT,
+	cartProductQuantity INT,
 	FOREIGN KEY(cartUserID) REFERENCES customer(custID),
 	FOREIGN KEY(cartProductID) REFERENCES company(compID)
 	)''')

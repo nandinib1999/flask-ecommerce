@@ -1,0 +1,116 @@
+<!DOCTYPE.html>
+<html>
+<head>
+<title>Edit Profile for Customers</title>
+<style type="text/css">
+
+body{
+margin: 0;
+padding: 0;
+background-image:url("/static/images/blur_b.jpg");
+background_size: cover;
+font_family: sans-serif;
+}
+.title{
+text-align:center;
+padding: 50px 0 20px;
+}
+.title h1{
+margin: 0;
+padding: 0;
+color:#262626;
+text-transform: uppercase;
+font-size: 36px;
+}
+.container{
+width:45%;
+height:750px;
+background: #fff;
+margin: 0 auto;
+border: 2px solid #fff;
+box-shadow: 0 15px 40px rgba(0,0,0,.5);
+}
+.container .left{
+float: left;
+width:50%;
+height: 750px;
+background-image:url("/static/images/cool-background.png");
+background_size: cover;
+box-sizing:border-box;
+}
+.formBox{
+width:100%;
+padding: 80px 40px;
+box-sizing: border-box;
+height: 400px;
+background:#fff;
+}
+.formBox p{
+margin: 0;
+padding: 0;
+font-weight: bold;
+color:#a6af13;
+}
+.formBox input{
+margin-bottom: 20px;
+}
+.formBox input[type="text"]
+{
+  border: none;
+  border-bottom: 2px solid #a6af13;
+  outline: none;
+  height:30px;
+}
+.formBox input[type="text"]:focus
+{ 
+   border-bottom: 2px solid #262626;
+}
+.formBox input[type="Submit"]{
+border:none;
+outline:none;
+height:40px;
+color:#fff;
+background: #262626;
+cursor:pointer;
+}
+.formBox input[type="Submit"]: hover{
+   background"#a6af13;
+   }
+.formBox a{
+color: #262626;
+font-size:12px;
+font-weight: bold;
+}
+
+</style>
+</head>
+<body>
+  <div class="title" style="color: #808080;"><h1>Edit Profile</h1></div>
+  <div class ="container">
+     <div class="left"></div>
+	 <div class="right">
+	    <div class="formBox">
+<div class="display">
+	
+	<form action="/business/edit_profile/" method="POST">
+		{% for data in profileData %}
+			<p> &nbsp;&nbsp;FirstName:<br>&nbsp;&nbsp;<input type="text" name="custfirstName" value= "{{data[0]}}"></p>
+	        <p> &nbsp;&nbsp;LastName:<br>&nbsp;&nbsp;<input type="text" name="custLastName" value="{{data[1]}}"></p>
+			<p> &nbsp;&nbsp;Gender:<br>&nbsp;&nbsp;<input type="text" name="custGender" value="{{data[2]}}"></p>
+			<p> &nbsp;&nbsp;Address : <br>&nbsp;&nbsp;<input type="text" name="custAddress" value="{{data[3]}}"></p>
+			<p> &nbsp;&nbsp;City: <br>&nbsp;&nbsp;<input type="text" name="custCity" value="{{data[4]}}"></p>
+			<p> &nbsp;&nbsp;State: <br>&nbsp;&nbsp;<input type="text" name="custState" value="{{data[5]}}"></p>
+			<p> &nbsp;&nbsp;Zip Code: <br>&nbsp;&nbsp;<input type="text" name="custCode" value="{{data[8]}}"></p>
+			<p> &nbsp;&nbsp;Phone Number: <br>&nbsp;&nbsp;<input type="text" name="custMobile" value="{{data[9]}}"></p>
+			<p> &nbsp;&nbsp;Country: <br>&nbsp;&nbsp;<input type="text" name="custCountry" value="{{data[10]}}"></p>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Save">
+		{% endfor %}
+	</form>
+</div>
+</body>
+</html>			  
+			  
+		  
+		 
+	 
+  

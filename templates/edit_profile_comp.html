@@ -1,0 +1,114 @@
+<!DOCTYPE.html>
+<html>
+<head>
+<title>Login Form</title>
+<style type="text/css">
+
+body{
+margin: 0;
+padding: 0;
+background-image:url("blur_b.jpg");
+background_size: cover;
+font_family: sans-serif;
+}
+.title{
+text-align:center;
+padding: 50px 0 20px;
+}
+.title h1{
+margin: 0;
+padding: 0;
+color:#262626;
+text-transform: uppercase;
+font-size: 36px;
+}
+.container{
+width:45%;
+height:600px;
+background: #fff;
+margin: 0 auto;
+border: 2px solid #fff;
+box-shadow: 0 15px 40px rgba(0,0,0,.5);
+}
+.container .left{
+float: left;
+width:50%;
+height: 600px;
+background-image:url("cool-background.png");
+background_size: cover;
+box-sizing:border-box;
+}
+.formBox{
+width:100%;
+padding: 80px 40px;
+box-sizing: border-box;
+height: 400px;
+background:#fff;
+}
+.formBox p{
+margin: 0;
+padding: 0;
+font-weight: bold;
+color:#a6af13;
+}
+.formBox input{
+margin-bottom: 20px;
+}
+.formBox input[type="text"]
+{
+  border: none;
+  border-bottom: 2px solid #a6af13;
+  outline: none;
+  height:40px;
+}
+.formBox input[type="text"]:focus
+{ 
+   border-bottom: 2px solid #262626;
+}
+.formBox input[type="Submit"]{
+border:none;
+outline:none;
+height:40px;
+color:#fff;
+background: #262626;
+cursor:pointer;
+}
+.formBox input[type="Submit"]: hover{
+   background"#a6af13;
+   }
+.formBox a{
+color: #262626;
+font-size:12px;
+font-weight: bold;
+}
+
+</style>
+</head>
+<body>
+  <div class="title"><h1>Edit Profile</h1></div>
+  <div class ="container">
+     <div class="left"></div>
+	 <div class="right">
+	    <div class="formBox">
+<div class="display">
+	
+	<form action="/business/edit_profile/" method="POST">
+		
+		<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp firstName:<input type="text" name="compfirstName" value= profileData[1]></p>
+        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspLastName:<input type="text" name="compLastName" value={{profileData[3]}}></p>
+		<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspAddress : <input type="text" name="compAddress" value={{profileData[4]}}></p>
+		<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspZip Code: <input type="text" name="compCode" value={{profileData[5]}}></p>
+		<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspCity: <input type="text" name="compCity" value={{profileData[6]}}></p>
+		<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspState: <input type="text" name="compState" value={{profileData[7]}}></p>
+		<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspCountry: <input type="text" name="compCountry" value={{profileData[8]}}></p>
+		<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspPhone Number: <input type="text" name="compMobile" value={{profileData[9]}}></p>
+		<input type="submit" value="Save">
+	</form>
+</div>
+</body>
+</html>			  
+			  
+		  
+		 
+	 
+  

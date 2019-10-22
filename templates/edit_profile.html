@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit Profile</title>
+</head>
+<body>
+	<h2> Edit Profile </h2>
+	<form method="POST">
+		{% for data in profileData %}
+		<input name="name" value="{{data[1]}}">
+		{% endfor %}
+	</form>
+</body>
+</html>

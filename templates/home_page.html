@@ -1,0 +1,332 @@
+<!doctype html>
+<html>
+<head>
+<title> FRONTPAGE </title>
+
+<script src="/static/js/jquery-3.4.1.js">
+</script>
+
+</head>
+
+<style type="text/css">
+
+#bc
+{
+background-color:#E40046;
+height:60px;
+width:100%;
+}
+
+.side-menu
+{
+  height:79%;
+  width:15%;
+  font-size:16px;
+  float:left;
+  z-index:2;
+  background-color:#ddd;
+}
+
+.side-menu ul
+{
+  margin-left:5px;
+}
+
+.side-menu ul li
+{
+  list-style-type:none;
+  font-weight:bold;
+  margin-top:10px;
+  cursor:pointer;
+}
+
+.side-menu ul li:hover
+{
+  color:red;
+}
+
+.side-menu ul li ul
+{
+  display:none;
+  z-index:10;
+  top:107px;
+}
+
+.side-menu ul li:hover ul
+{
+  display:block;
+  height:300px;
+  margin-left:183px;
+  padding: 0 100px 10px 10px;
+  position:fixed;
+  background:41F5D0;
+  box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.5);
+}
+
+#slideshow {
+    margin: 50px auto;
+    position: relative;
+    width: 940px;
+    height: 470px;
+    padding: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+#slideshow > div {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+}
+
+#demoFont {
+font-family: Georgia, serif;
+font-size: 25px;
+letter-spacing: -1.8px;
+word-spacing: 3.6px;
+color: #000000;
+font-weight: 400;
+text-decoration: underline solid rgb(68, 68, 68);
+font-style: normal;
+font-variant: small-caps;
+text-transform: none;
+}
+
+
+#demoFont2 {
+font-family: Georgia, serif;
+font-size: 16px;
+letter-spacing: -2.2px;
+word-spacing: 3.8px;
+color: #9952FF;
+font-weight: 400;
+text-decoration: none solid rgb(68, 68, 68);
+font-style: normal;
+font-variant: normal;
+text-transform: none;
+}
+
+.signupbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 10%;
+  opacity: 0.9;
+}
+
+#footer
+{
+background-color:#E40046;
+height:60px;
+width:100%;
+
+}
+
+.setmargin{
+margin: 8px 0;}
+
+
+.setmarginforlogo{
+margin: 8px 0;}
+
+
+.LOGINBUTTON
+{
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 16px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 10%;
+  opacity: 0.9;
+}
+
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+input[type=text] {
+  width: 100px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 5px 5px 5px 5px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+  position:relative;
+  left:350px;
+  top:12px;
+}
+
+input[type=text]:focus {
+  width: 40%;
+}
+
+</style>
+
+<body style="background:url(/static/images/ECommerce-Background-Zenith.png);" alt=" ECommerce-Background-Zenith"/>
+<div id="bc">
+<form>
+
+  <img src="/static/images/logo.jpg" class="setmargin" height="38px" width="70px"/>
+  <input type="text" name="search" placeholder="Search..">
+
+<div class="dropdown" style="float:right;">
+  <button class="dropbtn" style="float:right;">Hi, {{name}}</button>
+  <div class="dropdown-content style='float:right;'">
+    <a href="file:///C:/Users/Faizan/Desktop/SIGNUPFINAL.html">Login</a>
+    <a href="file:///C:/Users/Faizan/Desktop/bussiness_up.html">Sign Up</a>
+    <a href="file:///C:/Users/Faizan/Desktop/login.html">For Businesses</a>
+  </div>
+</div>
+
+  <img src="/static/images/cart.png" class="setmarginforlogo"  height="40px" width="50px" style="float:right;"/>
+
+</form>
+</div>
+
+<section class="header">
+<div class ="side-menu">
+<div id="demoFont">CATEGORIES</div>
+<ul>
+     
+
+       <li> Electronics<i class="faizan"></i>
+       <ul>
+       <th><h2> TOP BRANDS </h2></th>
+<div id="demoFont2">
+       <li> SPEAKERS</li>
+       <li> HEADPHONES</li>
+       <li> HAIR DRYER</li>
+       <li> FRIDGE</li>
+       <li> WASHING MACHINE</li>
+ 
+       </ul>
+       </li>
+
+       <li> Laptops <i class="faizan"></i>
+       <ul>
+       <th><h2>LAPTOPS/PC'S[BRANDS]</h2></th>
+<div id="demoFont2">
+       <li> HP </li>
+     
+       <li> LENOVO</li>
+     
+       </ul>
+       </li>
+       
+       <li> Men's Wear
+     
+       </li>
+
+       <li> Women's wear
+       <ul>
+<div id="demoFont2">
+       <li> JACKETS</li>
+       <li> SKIRTS</li>
+       <li> WEDGES</li>
+       <li> HEELS</li>
+       <li> HOODIES</li>
+       </ul>
+       </li>
+
+</ul>
+</div>
+</section>
+
+<div id="slideshow">
+   <div>
+<h2> WELCOME TO SHOPIFYZILLA</h2>
+</div>
+
+ <div>
+  <img src="/static/images/SLIDESHOWIMG1.jpg" height="470px">
+</div>
+
+  <div>
+<img src="/static/images/SLIDESHOWIMG2.jpg" height="470px">
+</div>
+
+  <div>
+  <img src="/static/images/SLIDESHOWIMG3.jpg" height="470px">
+  </div>
+
+<div>
+<img src="/static/images/SLIDESHOWFINALIMG6.jpg" height="470px">
+</div>
+
+<div>
+<img src="/static/images/SLIDESHOWFINALIMG8.jpg" height="470px">
+</div>
+
+<div>
+<img src="/static/images/SLIDESHOWFINALIMG9.jpg" height="470px">
+</div>
+
+<div>
+<img src="/static/images/SLIDESHOWFINALIMG10.jpg" height="470px">
+</div>
+</div>
+
+<script type="text/javascript">
+$("#slideshow > div:gt(0)").hide();
+
+setInterval(function() {
+  $('#slideshow > div:first')
+    .fadeOut(1000)
+    .next()
+    .fadeIn(1000)
+    .end()
+    .appendTo('#slideshow');
+},  3000);
+</script>
+<div id="footer">
+<footer>
+<center>&copy; Copyright 2019@SHOPIFYZILLA </br>CONTACT US-9911665604</center>
+
+</footer>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Wooppsss!!!! Empty Cart!!!</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	  <title>ShoppifyZilla | One Destination for all shopaholics</title>
+	  <link rel="stylesheet" type="text/css" href="/static/css/home.css">
+	  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		a{
+			text-decoration: none;
+		}
+		body{
+			background: url(/static/images/ECommerce-Background-Zenith.png);
+		}
+		#bc
+		  {
+		    background-color:#E40046;
+		  }
+		  .side-menu
+		  {
+		    height:79%;
+		    width:15%;
+		    font-size:16px;
+		    float:left;
+		    z-index:2;
+		    background-color:#ddd;
+		  }
+
+		  .side-menu ul
+		  {
+		    margin-left:10px !important;
+		  }
+
+		  .side-menu ul li
+		  {
+		    list-style-type:none;
+		    font-weight:bold;
+		    margin-top:10px;
+		    cursor:pointer;
+		  }
+
+		  .side-menu ul li:hover
+		  {
+		    color:red;
+		  }
+
+		  input[type=text]:focus {
+		    width: 50%;
+		  }
+		  a{
+		    text-decoration: none !important;
+		    padding: 3px;
+		  }
+		  #tableItems{
+		  	margin-left: 15% !important;
+		  }
+
+		  a:link{
+		  	color:#fff !important;
+		  }
+		  .dropdown-toggle{
+		  	margin-right:5px;
+		  	margin-top: 5px;
+		  }
+		  #shopping{
+		  	margin-left: 46%;
+		  }
+		  #emptycart{
+		  	margin-left: 20% !important;
+		  }
+	</style>
+</head>
+<body>
+	<div id="bc" class="top-nav-bar">
+	  <div class="search-box">
+	    <i class="fa fa-bars" id="menu-btn" onclick="openmenu()"></i>
+	    <i class="fa fa-times" id="menu-close" onclick="closemenu()"></i>
+	    <img src="/static/images/logo.jpg" class="logo">
+	    <input type="text" class="form-control">
+	    <span class="input-group-text"><i class="fa fa-search"></i></span>
+	  </div>
+
+	{% if 'email' in session %}
+	  <div class="dropdown" style="float: right;">
+	    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Hi, {{name}}
+	    <span class="caret"></span></button>
+	    <ul class="dropdown-menu">
+	      <li><a href="/business/add/category">Add New Category</a></li>
+	      <li><a href="/business/add/item">Add New Item</a></li>
+	      <li><a href="/business/changepassword">Change Password</a></li>
+	      <li class='divider'></li>
+	      <li><a href='/business/logout'> Logout </a></li>
+	    </ul>
+	  </div>
+	{% else %}
+	<div class="menu-bar">
+	  <ul>
+	    <li><a href="/customer">Login</a></li>
+	    <li><a href="/customer/register">Sign Up</a></li>
+	    <li><a href="/customer/home/None"> For Customers </a></li>
+	  </ul>
+	</div>
+	{% endif %}
+	</div>
+
+	<!-- ****** SIDE MENU ******* -->
+	<section class="header">
+	  <div class="side-menu" id="side-menu">
+	    <ul>
+	      {% for row in categoryData %}
+	      <li><a href="/displayCategory/{{row[0]}}">{{row[1]}}</a></li>
+	      {% endfor %}
+	    </ul>
+	  </div>
+	  <!-- ********* IMAGE ********-->
+	<div id="card">
+	<img src="/static/images/empty-cart.png" alt="emptycart" id="emptycart"><br>
+	<button style="background-color: #E40046;" id="shopping"><a href="/customer/home/{{name}}" style="color:#fff;">Let's go back to Shopping</a></button>
+	</div>
+
+	<!--FOOTER-->
+    <section class="footer">
+      <div class="container text-center">
+        <div class="row">
+          <div class="col-md-3">
+            <h1>Useful Links</h1>
+            <p>Privacy Policy</p>
+            <p>Terms of Use</p>
+            <p>Return Policy</p>
+            <p>Discount Coupons</p>
+          </div>
+          <div class="col-md-3">
+            <h1>Company</h1>
+            <p>About Us</p>
+            <p>Contact Us</p>
+            <p>Career</p>
+            <p>Affiliate</p>
+          </div>
+          <div class="col-md-3">
+            <h1>Follow Us On</h1>
+            <p><i class="fa fa-facebook-official"></i> Facebook</p>
+            <p><i class="fa fa-youtube-play"></i> Youtube</p>
+            <p><i class="fa fa-linkedin"></i> LinkedIn</p>
+            <p><i class="fa fa-twitter"></i> Twitter</p>
+          </div>
+          <div class="col-md-3 footer-image">
+            <h1>Download App</h1>
+            <img src="/static/images/app.png">
+          </div>
+        </div>
+        <hr>
+        <p class="copyright"><i class="fa fa-copyright"></i> ShopifyZilla 2019</p>
+      </div>
+    </section>
+</body>
+</html>

@@ -153,9 +153,9 @@
 				{% endif %}
 				<p><b>Brand </b>{{row[6]}}</p>
 				<p><b>Product Description </b>{{row[3]}}</p>
-				<label><b>Quantity</b></label>
-				<select id="quantity" onchange="document.getElementById('cart').href = document.getElementById('cart').href+'/'+document.getElementById('quantity').value">
-				<option> Select Quantity </option>
+				<!-- <label><b>Quantity</b></label>
+				<select id="quantity" onchange="document.getElementById('cart').href = document.getElementById('cart').href+'/'+document.getElementById('quantity').value"> -->
+				<!-- <option> Select Quantity </option>
 				{% for i in range(1, row[7]) %}
 					<option value={{i}}>{{i}}</option>
 				{% endfor %}
@@ -164,7 +164,7 @@
 				<button type="button" class="btn btn-default"><a id="cart" href="/cart/add/{{row[0]}}" class="disabled">Add to Cart</a></button>
 				{% else %}
 					<button type="button" class="btn btn-default"><a id="cart" href="/cart/add/{{row[0]}}">Add to Cart</a></button>
-				{% endif %}	
+				{% endif %} -->	
 			</div>
 	{% endfor %}
 </div>

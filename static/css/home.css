@@ -1,0 +1,254 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	font-family: sans-serif;
+}
+.top-nav-bar{
+	height:57px;
+	top:0;
+	position: sticky;
+	margin-bottom: 20px;
+	z-index: 2;
+}
+.logo{
+	height:54px !important;
+	margin: 5px 10px;
+}
+.form-control{
+	margin-top: 9px;
+	margin-left: 30px;
+	box-shadow: none;
+	border-top-left-radius: 20px !important;
+	border-bottom-left-radius: 20px !important;
+	border-top-right-radius: 0px !important;
+	border-bottom-right-radius: 0px !important; 
+
+}
+.input-group-text{
+	margin: 8.5px 10px 3px 0;
+	cursor: pointer;
+	padding-bottom: 3px !important;
+	height: 38px !important;
+	border-top-left-radius: 0px !important;
+	border-bottom-left-radius: 0px !important;
+	border-top-right-radius: 20px !important;
+	border-bottom-right-radius: 20px !important;  
+}
+.search-box{
+	display: inline-flex;
+	width: 60%;
+}
+.menu-bar{
+	width: 40%;
+	height: 57px !important;
+	float: right;
+}
+.menu-bar ul{
+	display: inline-flex;
+	float: right;
+}
+.menu-bar ul li{
+	list-style-type: none;
+	text-align: center;
+	padding: 15px 35px;
+	padding-top: 7px !important; 
+	cursor: pointer;
+	background-color: #fff;
+	border-left: 1px solid #E40046;
+	border-bottom: 1px solid #E40046;
+	height: 57px !important;
+}
+.menu-bar ul li a{
+	font-size: 16px;
+	font-weight: bold;
+	color: #E40046;
+}
+
+@media only screen and (max-width: 980px){
+	.top-nav-bar{
+		height: 118px;
+	}
+	.search-box{
+		width: 100%;
+	}
+	.menu-bar{
+		width: 100%
+	}
+	.menu-bar ul{
+		margin:10px 0;
+		width: 100%;
+	}
+	.menu-bar ul li{
+		height: 45px !important;
+		width: 100%;
+	}
+	.side-menu{
+		width: 34% !important;
+		z-index: 20;
+		top: 133px;
+		position: fixed;
+		font-size: 10px;
+		display: none;
+	}
+	#menu-btn{
+		display: block !important;
+	}
+}
+
+/*-------------------- SIDE BAR ----------------*/
+#menu-btn, #menu-close{
+	font-size: 30px;
+	margin:10px;
+	color: #fff;
+	display: none;
+}
+
+@media only screen and (min-width: 980px){
+	#menu-btn, #menu-close{
+		display: none !important;
+	}
+	.side-menu{
+		display: block !important;
+	}
+}
+
+/*------ SLIDER CSS -------*/
+.slider {
+    width: 75% !important;
+    margin-left: 15% !important;
+    padding: 0 10px;
+}
+
+.carousel{
+	box-shadow: 1px 1px 4px 1px rgba(0,0,0,0.5);
+}
+
+@media only screen and (max-width: 980px){
+	.slider{
+		width: 100% !important;
+		margin-left: 0 !important;
+	}
+}
+
+/*--------WEBSITE FEATURES --------*/
+
+.website-features{
+	margin: 60px 0;
+}
+.website-features img{
+	width: 20%;
+}
+/* ------ footer -------*/
+
+.footer{
+	margin-top: 50px;
+	background:#000;
+	color: #fff;
+}
+.footer h1{
+	font-size:15px;
+	margin:25px 0;
+
+}
+.footer p{
+	font-size: 12px;
+}
+.copyright{
+	margin-bottom: -80px;
+	text-align: center;
+	font-size: 15px;
+	padding-bottom: 20px;
+}
+.footer hr{
+	margin-top: 10px;
+	background-color:#ccc;
+}
+.footer-image img{
+	width: 150px;
+}
+.footer .row .fa{
+	padding-right: 20px;
+}
+
+.featured-categories{
+	margin:50px 0;
+}
+.featured-categories img{
+	width: 100%;
+	height: 356px;
+	padding: 20px 0;
+	transition: 1s;
+	cursor: pointer;
+}
+.featured-categories img:hover{
+	transform: scale(1.1);
+}
+
+.title-box{
+	background: #E40046;
+	color:#fff;
+	width: 180px;
+	padding: 4px 10px;
+	height: 40px;
+	margin-bottom: 30px;
+	display: flex;
+}
+.title-box h2{
+	font-size: 24px;
+}
+.title-box::after{
+	content:'';
+	position: absolute;
+	display: flex;
+	margin-top: -4px;
+	margin-left: 170px;
+}
+
+.product-top img{
+	width: 100%;
+}
+/*.overlay-right{
+	display: block;
+	opacity: 0;
+	position: absolute;
+	top:100%;
+	margin-left: 0;
+	width: 70px; 
+}
+.overlay-right .fa{
+	cursor: pointer;
+	background-color: #fff;
+	color: #000;
+	height: 35px;
+	width: 35px;
+	font-size: 20px;
+	padding: 7px;
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
+.overlay-right .btn-secondary{
+	border:none !important;
+	background:none !important;
+	box-shadow: none !important;
+}
+
+.product-top:hover .overlay-right{
+	opacity: 1;
+	margin-left: 5%;
+	transition: 0.5s;
+}*/
+
+.product-bottom .fa{
+	color:orange;
+	font-size: 10px;
+}
+.product-bottom h3{
+	font-size: 20px;
+	font-weight: bold;
+}
+.product-bottom h5{
+	font-size: 15px;
+	padding-bottom: 10px;
+}

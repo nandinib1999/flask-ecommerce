@@ -1,0 +1,157 @@
+<!DOCTYPE.html>
+<html>
+<head>
+<title> Add New Items</title>
+<style type="text/css">
+body{
+background:#673AB7;
+font-family: sans-serif;
+}
+form{
+width: 500px;
+height: 500px;
+margin:8% ;
+margin-top: -340px;
+margin-bottom: 300px;
+
+padding: 50px 0;
+text-align: left;
+font-size: 36px;
+box-shadow: 0 20px 40px rgb(0,0,0);
+}
+.input-box {
+margin: 20px auto;
+width: 80%;
+position: relative;
+box-shadow: 0 8px 10px -10px rgb(0,0,0);
+}
+.input-box input{
+width: 100%;
+height: 40px;
+border:none;
+background: #efefef;
+padding-left: 50px;
+}
+.input-box p{
+font-size: 7px;
+}
+button{
+width: 120px;
+height : 40px;
+margin-left: 33%;
+display: block;
+color: #fff;
+border: 0;
+font-size: 16px;
+outline: none;
+background: linear-gradient(to right,#4CAF50, #00BCD4);
+box-shadow: 0 8px 10px -10px rgb(0,0,0);
+cursor: pointer;
+}
+.hero{
+display:flex;
+width:300px;
+height: 300px;
+margin-top: 300px;
+flex-wrap : wrap;
+margin-left: 1200px;
+background:#ccc;
+}
+.small-img{
+flex-basis: 100px;
+cursor: pointer;
+
+}
+.small-img img{
+max-width:100px !important;
+height:100px !important;	
+}
+
+.hero: hover .small-img: nth-child(1){
+transform : translate(60px , 230px) rotate(360deg);
+}
+.hero: hover .small-img: nth-child(2){
+transform : translate(-260px , -150px) rotate(360deg);
+}
+.hero: hover .small-img: nth-child(3){
+transform : translate(91px ,295px) rotate(360deg);
+}
+.hero: hover .small-img: nth-child(4){
+transform : translate(440px , -220px) rotate(360deg);
+}
+.hero: hover .small-img: nth-child(5){
+transform : translate(100px , -120px) rotate(360deg);
+}
+.hero: hover .small-img: nth-child(6){
+transform : translate(-370px , -320px) rotate(360deg);
+}
+.hero: hover .small-img: nth-child(7){
+transform : translate(0 , -480px) rotate(360deg);
+}
+.hero: hover .small-img: nth-child(8){
+transform : translate(-280px , -40px) rotate(360deg);
+}
+.hero: hover .small-img: nth-child(9){
+transform : translate(400px , -120px) rotate(360deg);
+}
+.inp{
+float:right;
+}
+</style>
+
+<body>
+ <div class="hero">
+	<div class="small-img">
+	    <img src="/static/images/attachments/1.jpg">
+	</div>
+	<div class="small-img">
+	    <img src="/static/images/attachments/2.jpg">
+	</div>
+	<div class="small-img">
+	    <img src="/static/images/attachments/3.jpg">
+	</div>
+		<div class="small-img">
+	<img src="/static/images/attachments/4.jpg">
+	</div>
+	<div class="small-img">
+	<img src="/static/images/attachments/5.jpg">
+	</div>
+	<div class="small-img">
+	<img src="/static/images/attachments/6.jpg">
+	</div>
+	<div class="small-img">
+	<img src="/static/images/attachments/7.jpg">
+	</div>
+	<div class="small-img">
+	<img src="/static/images/attachments/8.jpg">
+	</div>
+	<div class="small-img">
+	<img src="/static/images/attachments/9.jpg">
+</div>
+</div>
+<form method="POST" enctype="multipart/form-data">
+<div class="input-box">
+	<input type="text" placeholder="name" name="name" required></p>
+</div>
+<div class="input-box">
+	<input type="text" placeholder="price" name="price" required></p>
+</div>
+<div class="input-box">
+	<input type="text" placeholder="description" name="description" required></p>
+</div>
+<div class="input-box">
+	<input type="text" placeholder="stock" name="stock" required></p>
+</div>
+<div class="input-box">
+	<input type="text" placeholder="category" name="category" required></p>
+</div>
+<div class="input-box">
+	<input type="text" placeholder="Sub-category" name="sub-category" required></p>
+</div>
+<div class="inp">
+ <input type="file" name="Image" ><br><br>
+<button type="submit">Submit</button>
+	
+</form>
+ </body>
+ </html>

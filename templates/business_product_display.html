@@ -96,11 +96,11 @@
 	    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Hi, {{name}}
 	    <span class="caret"></span></button>
 	    <ul class="dropdown-menu">
-	      <li><a href="/cart/view">View Cart</a></li>
-	      <li><a href="/customer/edit_profile">Edit Profile</a></li>
-	      <li><a href="/customer/changepassword">Change Password</a></li>
+	      <li><a href="/business/add/category">Add New Category</a></li>
+	      <li><a href="/business/add/item">Add New Item</a></li>
+	      <li><a href="/business/changepassword">Change Password</a></li>
 	      <li class='divider'></li>
-	      <li><a href="/customer/logout">Logout</a></li>
+	      <li><a href='/business/logout'> Logout </a></li>
 	    </ul>
 	  </div>
 	{% else %}
@@ -160,11 +160,6 @@
 					<option value={{i}}>{{i}}</option>
 				{% endfor %}
 				</select>
-				{% if row[7]==0 %}
-				<button type="button" class="btn btn-default"><a id="cart" href="/cart/add/{{row[0]}}" class="disabled">Add to Cart</a></button>
-				{% else %}
-					<button type="button" class="btn btn-default"><a id="cart" href="/cart/add/{{row[0]}}">Add to Cart</a></button>
-				{% endif %}	
 			</div>
 	{% endfor %}
 </div>

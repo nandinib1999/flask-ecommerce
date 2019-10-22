@@ -93,7 +93,7 @@
   <div class="side-menu" id="side-menu">
     <ul>
       {% for row in categoryData %}
-      <li><a href="/displayCategory/{{row[1]}}">{{row[1]}}</a></li>
+      <li><a href="/business/displayCategory/{{row[0]}}">{{row[0]}}</a></li>
       {% endfor %}
     </ul>
   </div>
@@ -184,6 +184,46 @@
 
   <!--PRODUCT DISPLAY-->
   <section class="on-sale">
+  <div class="container">
+    <div class="title-box">
+        <h2>Items</h2>
+    </div>
+    <div class="row">
+        {% for data in itemData %}
+          {% for row in data %}
+          <div class="col-md-4" style="background-color: #f3f3f3; box-shadow: 1px 1px 4px 1px rgba(0,0,0,0.5);">
+            <div class="product-top text-center">
+              <a href="/business/displayProduct/{{row[0]}}">
+              <img src="/static/upload/{{row[7]}}" id="itemImage" alt="{{row[1]}}" style="height:200px;width:200px;"/>
+              </a>
+            </div>
+            <div class="overlay-right text-center">
+              <button type="button" class="btn btn-secondary" title="Quick Shop">
+                <i class="fa fa-eye"></i>
+              </button>
+              <button type="button" class="btn btn-secondary" title="Add to Wishlist">
+                <i class="fa fa-heart-o"></i>
+              </button>
+              <button type="button" class="btn btn-secondary" title="Add to Cart">
+                <i class="fa fa-shopping-cart"></i>
+              </button><br>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star-half-o"></i>
+            </div>
+            <div class="product-bottom text-center">
+              <h3>{{row[1]}}</h3>
+              <h5><i class="fa fa-rupee-sign"></i> {{row[2]}}</h5>
+            </div>
+             </div>
+          {% endfor %}
+        {% endfor %}
+    </div>
+  </div>
+</section>
+  <!-- <section class="on-sale">
     <div class="container">
       <div class="title-box">
         <h2>Items</h2>
@@ -236,7 +276,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
     <!------WEBSITE FEATURE SECTION----->
     <section class='website-features'>

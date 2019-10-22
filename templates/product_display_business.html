@@ -96,11 +96,11 @@
 	    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Hi, {{name}}
 	    <span class="caret"></span></button>
 	    <ul class="dropdown-menu">
-	      <li><a href="/cart/view">View Cart</a></li>
-	      <li><a href="/customer/edit_profile">Edit Profile</a></li>
-	      <li><a href="/customer/changepassword">Change Password</a></li>
+	      <li><a href="/business/add/category">Add New Category</a></li>
+	      <li><a href="/business/add/item">Add New Item</a></li>
+	      <li><a href="/business/changepassword">Change Password</a></li>
 	      <li class='divider'></li>
-	      <li><a href="/customer/logout">Logout</a></li>
+	      <li><a href='/business/logout'> Logout </a></li>
 	    </ul>
 	  </div>
 	{% else %}
@@ -119,7 +119,7 @@
 	  <div class="side-menu" id="side-menu">
 	    <ul>
 	      {% for row in categoryData %}
-	      <li><a href="/displayCategory/{{row[0]}}">{{row[1]}}</a></li>
+	      <li><a href="/business/displayCategory/{{row[0]}}">{{row[0]}}</a></li>
 	      {% endfor %}
 	    </ul>
 	  </div>

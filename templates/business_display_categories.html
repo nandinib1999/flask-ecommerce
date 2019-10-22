@@ -58,7 +58,7 @@
   <div class="search-box">
     <i class="fa fa-bars" id="menu-btn" onclick="openmenu()"></i>
     <i class="fa fa-times" id="menu-close" onclick="closemenu()"></i>
-    <a href="/customer/home/{{name}}"><img src="/static/images/logo.jpg" class="logo"></a>
+    <a href="/business/home/{{name}}"><img src="/static/images/logo.jpg" class="logo"></a>
     <input type="text" class="form-control">
     <span class="input-group-text"><i class="fa fa-search"></i></span>
   </div>
@@ -78,9 +78,9 @@
 {% else %}
 <div class="menu-bar">
   <ul>
-    <li><a href="/customer">Login</a></li>
-    <li><a href="/customer/register">Sign Up</a></li>
-    <li><a href="/customer/home/None"> For Customers </a></li>
+    <li><a href="/business">Login</a></li>
+    <li><a href="/business/register">Sign Up</a></li>
+    <li><a href="/business/home/None"> For Customers </a></li>
   </ul>
 </div>
 {% endif %}
@@ -91,7 +91,7 @@
   <div class="side-menu" id="side-menu">
     <ul>
       {% for row in categoryData %}
-      <li><a href="/displayCategory/{{row[1]}}">{{row[1]}}</a></li>
+      <li><a href="/business/displayCategory/{{row[0]}}">{{row[0]}}</a></li>
       {% endfor %}
     </ul>
   </div>
@@ -121,6 +121,46 @@
 	{% endfor %}
 </div> -->
 <section class="on-sale">
+  <div class="container">
+    <div class="title-box">
+        <h2>Items</h2>
+    </div>
+    <div class="row">
+        {% for data_item in data %}
+          {% for row in data_item %}
+          <div class="col-md-4" style="background-color: #f3f3f3; box-shadow: 1px 1px 4px 1px rgba(0,0,0,0.5);">
+            <div class="product-top text-center">
+              <a href="/business/displayProduct/{{row[0]}}">
+              <img src="/static/upload/{{row[4]}}" id="itemImage" alt="{{row[1]}}" style="height:200px;width:200px;"/>
+              </a>
+            </div>
+            <div class="overlay-right text-center">
+              <button type="button" class="btn btn-secondary" title="Quick Shop">
+                <i class="fa fa-eye"></i>
+              </button>
+              <button type="button" class="btn btn-secondary" title="Add to Wishlist">
+                <i class="fa fa-heart-o"></i>
+              </button>
+              <button type="button" class="btn btn-secondary" title="Add to Cart">
+                <i class="fa fa-shopping-cart"></i>
+              </button><br>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star-half-o"></i>
+            </div>
+            <div class="product-bottom text-center">
+              <h3>{{row[1]}}</h3>
+              <h5>Rs. {{row[3]}}</h5>
+            </div>
+             </div>
+          {% endfor %}
+        {% endfor %}
+    </div>
+  </div>
+</section>
+<!-- <section class="on-sale">
     <div class="container">
       <div class="title-box">
         <h2>Items</h2>
@@ -173,7 +213,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
     <!--FOOTER-->
     <section class="footer">
       <div class="container text-center">

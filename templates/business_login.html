@@ -1,13 +1,91 @@
+<!DOCTYPE html>
 <html>
 <head>
 <title>	Flask app </title>
+
+<style type="text/css">
+
+
+body
+{
+background-image:url("/static/images/re.jpg");
+}
+
+#log
+{
+height: 350px;
+width: 450px;
+box-shadow: 0px 0px 20px 4px black;
+background-color:grey;
+opacity:0.9;
+float:right;
+position:relative;
+top:250px;
+right:60px;
+}
+
+
+#subset
+{
+position:relative;
+left:120px;
+top:20px;
+}
+
+#set
+{
+font-size:25px;
+font-weight:bold;
+position:relative;
+top:10px;
+left:0px;
+}
+
+#siset
+{
+position:relative;
+left:120px;
+top:20px;
+}
+
+
+#alg
+{
+margin-left:50px;
+margin-top:40px;
+color:white;
+}
+
+.butt
+{
+margin-left:120px;
+font-size:20px;
+}
+
+#creset
+{
+position:relative;
+right:40px;
+}
+
+</style>
+
 </head>
 <body>
+
+<div id="log">
+
+<h1 align="center"><ins>SIGN IN</ins></h1>
 <form method="POST">
-	<p>Email: <input type="text" name="email"></p>
-	<p>Password: <input type="password" name="password"></p>
-	<p><input type="submit"></p>
-	<button type=button formtarget="_blank"><a href="/business/register">Sign Up</a></button>
+<div id="alg">
+<h2>Email :-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<input type="text" class="inset" name="email"></h2>
+<h2>Password :-&nbsp; &nbsp;<input type="password" class="inset" name="password"></h2><br>
+<button type="submit" class="butt"></a>SIGN IN</button>
+<h3>DON'T HAVE AN ACCOUNT ??</h3>
+<button type="submit" class="butt" id="creset"><a href="/business/register">CREATE ACCOUNT</a></button>
+</div>
 </form>
+</div>
+
 </body>
 </html>

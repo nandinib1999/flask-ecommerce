@@ -111,7 +111,7 @@ def add_category():
                     cur = con.cursor()
                     cur.execute('''INSERT INTO categories (catParentName,catSubName,catDescription) VALUES (?,?,?)''', (parent_category, category, description))
                     con.commit()
-                    cur.execute('SELECT DISTINCT catID, catParentName FROM categories')
+                    cur.execute('SELECT DISTINCT catParentName FROM categories')
                     categoryData = cur.fetchall()
                     print("categoryData", categoryData)
                     return redirect('/business/home/{{name}}')
@@ -149,7 +149,7 @@ def business():
                     return redirect(url_for('company_home', name=name))
         con.close()
     elif request.method == 'GET':
-        return render_template('login.html', error=error, categoryData=categoryData, name=name)
+        return render_template('business_login.html')
 
 @app.route('/business/register', methods=['GET', 'POST'])
 def business_register():
@@ -308,7 +308,7 @@ def checkout(user_id):
                 items = cur.fetchall()
                 print('Data fetched from table')
                 print(items)
-                cur.execute('SELECT DISTINCT catID, catParentName FROM categories')
+                cur.execute('SELECT DISTINCT catParentName FROM categories')
                 categoryData = cur.fetchall()
                 for item in items:
                     updateTables(item[0], user_id, item[5])
@@ -329,7 +329,7 @@ def remove_item(product_id):
             print(cust_id)
             cur.execute('''DELETE FROM cartItems WHERE cartUserID = (?) and cartProductID = (?)''', (cust_id[0][0], product_id,))
             con.commit()
-            cur.execute('SELECT DISTINCT catID, catParentName FROM categories')
+            cur.execute('SELECT DISTINCT catParentName FROM categories')
             categoryData = cur.fetchall()
         return redirect('/cart/view')
     except Exception as e:
@@ -351,9 +351,10 @@ def display_product_business(product_id):
             data = cur.fetchall()
             print(data)
             print('Fetching completed!!')
-            cur.execute('SELECT DISTINCT catID, catParentName FROM categories')
+            cur.execute('SELECT DISTINCT catParentName FROM categories')
             categoryData = cur.fetchall()
-        return render_template('product_display_business.html', data=data, categoryData=categoryData, name=name)
+            print("categoryData", categoryData)
+        return render_template('business_product_display.html', data=data, categoryData=categoryData, name=name)
     except Exception as e:
         print('EEERRRR ', e)
         conn.rollback()
@@ -370,7 +371,7 @@ def display_product_customer(product_id):
             print('Fetching product data from database')
             cur.execute('''SELECT p.proID, p.proName, p.proPrice, p.proDescription, p.proBrandID, p.proImage, comp.compName, p.proQuantity from products p, company comp where p.proBrandID = comp.compID and p.proID = (?)''', (product_id,))
             data = cur.fetchall()
-            cur.execute('SELECT DISTINCT catID, catParentName FROM categories')
+            cur.execute('SELECT DISTINCT catParentName FROM categories')
             categoryData = cur.fetchall()
             print(data)
             print("categoryData", categoryData)
@@ -382,21 +383,39 @@ def display_product_customer(product_id):
         return render_template('404.html', categoryData=categoryData)
 
 
-@app.route("/displayCategory/<categoryName>", methods=['GET', 'POST'])
-def displayCategory(categoryName):
+@app.route("/customer/displayCategory/<categoryName>", methods=['GET', 'POST'])
+def display_category_cust(categoryName):
         login_flag, Name, email = checkSession()
         print(categoryName)
         with sqlite3.connect('database.db') as conn:
             cur = conn.cursor()
             cur.execute("SELECT products.proID, products.proName, products.proQuantity, products.proPrice, products.proImage, products.proBrandID, categories.catSubName,categories.catParentName FROM products, categories WHERE categories.catID = products.proCategoryID AND categories.catParentName = (?)", (categoryName,))
             data = cur.fetchall()
-            cur.execute('SELECT DISTINCT catID, catParentName FROM categories')
+            cur.execute('SELECT DISTINCT catParentName FROM categories')
             categoryData = cur.fetchall()
+            print("categoryData", categoryData)
         conn.close()
         # categoryName = data[0][4]
         data = parse(data)
         print("CATEGORY DATA ", data)
-        return render_template('displayCategories.html', data=data, name=Name, categoryData=categoryData)
+        return render_template('customer_display_category.html', data=data, name=Name, categoryData=categoryData)
+
+@app.route("/business/displayCategory/<categoryName>", methods=['GET', 'POST'])
+def display_category_business(categoryName):
+        login_flag, Name, email = checkSession()
+        print(categoryName)
+        with sqlite3.connect('database.db') as conn:
+            cur = conn.cursor()
+            cur.execute("SELECT products.proID, products.proName, products.proQuantity, products.proPrice, products.proImage, products.proBrandID, categories.catSubName,categories.catParentName FROM products, categories WHERE categories.catID = products.proCategoryID AND categories.catParentName = (?)", (categoryName,))
+            data = cur.fetchall()
+            cur.execute('SELECT DISTINCT catParentName FROM categories')
+            categoryData = cur.fetchall()
+            print("categoryData", categoryData)
+        conn.close()
+        # categoryName = data[0][4]
+        data = parse(data)
+        print("CATEGORY DATA ", data)
+        return render_template('business_display_categories.html', data=data, name=Name, categoryData=categoryData)
 
 @app.route('/cart/add/<product_id>/<quantity>', methods=['GET', 'POST'])
 def add_to_cart(product_id, quantity):
@@ -413,8 +432,9 @@ def add_to_cart(product_id, quantity):
                 print('Adding to cart...')
                 cur.execute('''INSERT INTO cartItems (cartUserID, cartProductID, cartProductQuantity) VALUES (?,?,?)''', (data[0][0],product_id,quantity,))
                 conn.commit()
-                cur.execute('SELECT DISTINCT catID, catParentName FROM categories')
+                cur.execute('SELECT DISTINCT catParentName FROM categories')
                 categoryData = cur.fetchall()
+                print("categoryData", categoryData)
                 print('Added Successfully!!')
             return redirect('/cart/view')
         except Exception as e:
@@ -440,8 +460,9 @@ def view_cart():
                 items = cur.fetchall()
                 print('Data fetched from table')
                 print(items)
-                cur.execute('SELECT DISTINCT catID, catParentName FROM categories')
+                cur.execute('SELECT DISTINCT catParentName FROM categories')
                 categoryData = cur.fetchall()
+                print(categoryData)
                 total = 0
                 for item in items:
                     total = total+item[2]*item[5]
@@ -462,8 +483,9 @@ def customer_home(name):
         cur = conn.cursor()
         cur.execute('SELECT proID, proName, proPrice, proQuantity, proDescription, proBrandID, proCategoryID, proImage FROM products')
         itemData = cur.fetchall()
-        cur.execute('SELECT catID, catParentName, catSubName, catDescription FROM categories')
+        cur.execute('SELECT DISTINCT catParentName FROM categories')
         categoryData = cur.fetchall()
+        print("categoryData", categoryData)
     itemData = parse(itemData)
     #convertDict(categoryData)   
     return render_template('customer_home.html', name=name, itemData=itemData, categoryData=categoryData)
@@ -475,8 +497,9 @@ def company_home(name):
         cur = conn.cursor()
         cur.execute('SELECT proID, proName, proPrice, proQuantity, proDescription, proBrandID, proCategoryID, proImage FROM products')
         itemData = cur.fetchall()
-        cur.execute('SELECT DISTINCT catID, catParentName, catSubName, catDescription FROM categories')
+        cur.execute('SELECT DISTINCT catParentName FROM categories')
         categoryData = cur.fetchall()
+        print("categoryData", categoryData)
     itemData = parse(itemData)
     #convertDict(categoryData)   
     return render_template('business_home.html', name=name, itemData=itemData, categoryData=categoryData)

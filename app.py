@@ -58,7 +58,7 @@ def add_item():
             filename = secure_filename(image.filename)
             image.save(os.path.join(app.config['UPLOAD_FOLDER'],secure_filename(image.filename)))
             category = request.form['category']
-            sub_category = request.form['sub_category']
+            sub_category = request.form['sub-category']
             name = session['name']
             with sqlite3.connect('database.db') as con:
                 cur = con.cursor()

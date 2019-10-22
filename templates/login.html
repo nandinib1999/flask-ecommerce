@@ -8,38 +8,22 @@
 
 body
 {
-background-image:url("/static/images/cool-background.png");
+background-image:url("/static/images/re.jpg");
 }
 
 #log
 {
 height: 350px;
 width: 450px;
-box-shadow: 0px 0px 20px 4px grey;
-background-color:#C0C0C0;
-opacity:1;
+box-shadow: 0px 0px 20px 4px black;
+background-color:grey;
+opacity:0.9;
+float:right;
 position:relative;
 top:250px;
-left:730px;
+right:60px;
 }
 
-h2
-{
-color:dark blue;
-}
-
-#contset
-{
-position:relative;
-top:70px;
-left:50px;
-color:dark blue;
-}
-
-input
-{
-position:relative;
-}
 
 #subset
 {
@@ -64,18 +48,24 @@ left:120px;
 top:20px;
 }
 
-#imgset
+
+#alg
+{
+margin-left:50px;
+margin-top:40px;
+color:white;
+}
+
+.butt
+{
+margin-left:120px;
+font-size:20px;
+}
+
+#creset
 {
 position:relative;
-bottom:250px;
-left:50px;
-}
-body{
-	height: 100vh; 
-    width: 100vw; 
-}
-a{
-	text-decoration: none;
+right:40px;
 }
 
 </style>
@@ -83,21 +73,19 @@ a{
 </head>
 <body>
 
-
 <div id="log">
-<form method="POST">
-<div id="contset">
-	<h2>Email:&emsp;&ensp;&ensp;<input type="text" name="email"></h2>
-	<h2>Password:&ensp;<input type="password" name="password"></h2>
-	<p id="subset"><input type="submit" ></p>
-        <p id="set">* Don't  Have  An  Account</p>
-	<button type="submit" id="siset"><a href="/customer/register">Sign Up</a></button></a>
 
+<h1 align="center"><ins>SIGN IN</ins></h1>
+<form method="POST">
+<div id="alg">
+<h2>Email :-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<input type="text" class="inset" name="email"></h2>
+<h2>Password :-&nbsp; &nbsp;<input type="password" class="inset" name="password"></h2><br>
+<button type="submit" class="butt"></a>SIGN IN</button>
+<h3>DON'T HAVE AN ACCOUNT ??</h3>
+<button type="submit" class="butt" id="creset"><a href="/customer/register">CREATE ACCOUNT</a></button>
 </div>
 </form>
 </div>
-<div id="imgset">
-<img src="/static/images/login_page.jpg" height="500px" width="500px">
-</div>
+
 </body>
 </html>

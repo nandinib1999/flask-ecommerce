@@ -59,7 +59,7 @@
   <div class="search-box">
     <i class="fa fa-bars" id="menu-btn" onclick="openmenu()"></i>
     <i class="fa fa-times" id="menu-close" onclick="closemenu()"></i>
-    <img src="/static/images/logo.jpg" class="logo">
+    <a href="/customer/home/{{name}}"><img src="/static/images/logo.jpg" class="logo"></a>
     <input type="text" class="form-control">
     <span class="input-group-text"><i class="fa fa-search"></i></span>
   </div>
@@ -197,7 +197,7 @@
               <tr id="productImage">
                 <td>
                   <a href="/business/displayProduct/{{row[0]}}">
-                    <img src="/static/upload/{{row[7]}}" id="itemImage" alt="{{row[1]}}"/>
+                    <img src="/static/upload/{{row[7]}}" id="itemImage" alt="{{row[1]}}" style="height:200px;width:200px;"/>
                   </a>
                   <div class="overlay-right">
                     <button type="button" class="btn btn-secondary" title="Quick Shop">

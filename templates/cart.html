@@ -69,7 +69,7 @@
   <div class="search-box">
     <i class="fa fa-bars" id="menu-btn" onclick="openmenu()"></i>
     <i class="fa fa-times" id="menu-close" onclick="closemenu()"></i>
-    <img src="/static/images/logo.jpg" class="logo">
+    <a href="/customer/home/{{name}}"><img src="/static/images/logo.jpg" class="logo"></a>
     <input type="text" class="form-control">
     <span class="input-group-text"><i class="fa fa-search"></i></span>
   </div>
@@ -79,11 +79,11 @@
     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Hi, {{name}}
     <span class="caret"></span></button>
     <ul class="dropdown-menu">
-      <li><a href="/business/add/category">Add New Category</a></li>
-      <li><a href="/business/add/item">Add New Item</a></li>
-      <li><a href="/business/changepassword">Change Password</a></li>
+      <li><a href="/cart/view">View Cart</a></li>
+      <li><a href="/customer/edit_profile">Edit Profile</a></li>
+      <li><a href="/customer/changepassword">Change Password</a></li>
       <li class='divider'></li>
-      <li><a href='/business/logout'> Logout </a></li>
+      <li><a href="/customer/logout">Logout</a></li>
     </ul>
   </div>
 {% else %}
@@ -166,7 +166,7 @@
 			<hr>
 			<div id="itemName">
 				<span id="itemNameTag"><b>{{row[1]}}</b></span><br>
-				<img src="/static/upload/{{row[3]}}" alt={{row[1]}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<img src="/static/upload/{{row[3]}}" alt={{row[1]}} style="height:200px;width:200px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<b>In stock</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="/remove/{{row[0]}}">Remove</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<b>Rs {{row[2]}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -177,6 +177,7 @@
 		<div class="title-box">
 			<b>Subtotal : Rs {{total}}</b>
 		</div>
+    <button type="button" style="background-color: #E40046;"><a href="/customer/home/{{name}}">Continue Shopping</a></button><br>
 		<button type="button" style="background-color: #E40046;"><a href="/checkout/{{user_id}}">Proceed to checkout</a></button>
 	</div>
 
